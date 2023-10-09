@@ -12,11 +12,11 @@ pipeline {
         stage('Update dev.env') {
             steps {
                 script {
-                    // Replace the placeholders with actual values in dev.env
+                    // Use sed to replace placeholders with actual values in dev.env
                     sh '''
-                        sed -i "s|\$TCP_PORT|${env.TCP_PORT}|g" dev.env
-                        sed -i "s|\$TCP_HOST|${env.TCP_HOST}|g" dev.env
-                        sed -i "s|\$TZ|${env.TZ}|g" dev.env
+                        sed -i "s|\\\$TCP_PORT|${env.TCP_PORT}|g" dev.env
+                        sed -i "s|\\\$TCP_HOST|${env.TCP_HOST}|g" dev.env
+                        sed -i "s|\\\$TZ|${env.TZ}|g" dev.env
                     '''
                 }
             }

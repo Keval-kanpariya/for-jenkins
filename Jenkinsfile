@@ -6,6 +6,15 @@ pipeline {
         TZ = readFile('dev.env').trim().split('=')[5].trim()
     }
     stages {
+        stage('Print Environment Variables') {
+            steps {
+                script {
+                    echo "TCP_PORT: ${env.TCP_PORT}"
+                    echo "TCP_HOST: ${env.TCP_HOST}"
+                    echo "TZ: ${env.TZ}"
+                }
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Hello from build stage'

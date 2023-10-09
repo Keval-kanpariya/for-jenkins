@@ -2,6 +2,21 @@ pipeline {
     agent any
 
     stages {
+        sstage('Environment Variable'){
+            steps {
+                sript {
+                    def devEnvFile = readFile('dev.env')
+                    def envVars = [:]
+                    devEnvFile.eachLine { line ->
+                        def (key, value) = line.split('=')
+                        envVars[key.trim()] = value.trim()
+               // Set the environment variables
+                    withEnv(envVars) {
+                        echo "Environment variables loaded from dev.env:"
+                        envVars.each { key, value ->
+                            echo "${key}=${value}" }
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Hello from build stage'

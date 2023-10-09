@@ -6,15 +6,6 @@ pipeline {
             steps {
                 script {
                     def devEnvFile = readFile('dev.env')
-                    def envVars = [:]
-                    devEnvFile.eachLine { line ->
-                        def (key, value) = line.split('=')
-                        envVars[key.trim()] = value.trim()
-                    }
-                    // Set the environment variables
-                    withEnv(envVars) {
-                        echo "Environment variables loaded from dev.env:"
-                        envVars.each { key, value ->
                             echo "${key}=${value}"
                         }
                     }

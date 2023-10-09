@@ -1,27 +1,24 @@
 pipeline {
     agent any
-        stage('Build') {
+    
+    environment {
+        // Define environment variables with actual values
+        TCP_PORT = '12345'
+        TCP_HOST = 'example.com'
+        TZ = 'America/New_York'
+    }
+    
+    stages {
+        stage('Update dev.env') {
             steps {
-                echo 'Hello from build stage'
-                echo 'Hello from build stage 2'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Hello from deploy stage'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Hello from test stage'
-            }
-        }
-
-        stage('Release') {
-            steps {
-                echo 'Hello from release stage'
+                script {
+                    // Replace the placeholders with actual values in dev.env
+                    sh '''
+                        sed -i "s|\$TCP_PORT|${env.TCP_PORT}|g" dev.env
+                        sed -i "s|\$TCP_HOST|${env.TCP_HOST}|g" dev.env
+                        sed -i "s|\$TZ|${env.TZ}|g" dev.env
+                    '''
+                }
             }
         }
     }

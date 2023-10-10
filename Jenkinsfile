@@ -20,7 +20,7 @@ pipeline {
                         git stash save "Stash changes in dev.env"
                         sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
                         #git remote add origin https://github_pat11A6IUE3Q0joKgfJEXUJ0w_osSFeU1B8yh9g4wXU6GMG65UlQBn8j9H4PNLtwI1ThWCGXW7SEP41J1bpSb@github.com/Keval-kanpariya/for-jenkins.git
-                        git checkout main
+                        #git checkout main
                         git add dev.env
                         git commit -m "Updated dev.env and Jenkins pipeline script"
                         git push origin HEAD:main

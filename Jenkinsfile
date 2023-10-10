@@ -9,8 +9,6 @@ pipeline {
                     // Use sed to replace placeholders with actual values in dev.env
                     sh '''
                         sed -i "s|\\\$TCP_PORT|${myVariable}|g" dev.env
-
-
                     '''
                 }
             }

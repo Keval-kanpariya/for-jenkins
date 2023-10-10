@@ -36,7 +36,7 @@ pipeline {
                         git add .
                         git commit -m "Updated dev.env and Jenkins pipeline script"
                         #git checkout main
-                        git push git@github.com:Keval-kanpariya/for-jenkins.git
+                        git push git@github.com:Keval-kanpariya/for-jenkins.git HEAD:main
                     """
                         }
                         }

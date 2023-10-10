@@ -23,7 +23,7 @@ pipeline {
                         #git checkout main
                         git add dev.env
                         git commit -m "Updated dev.env and Jenkins pipeline script"
-                        git push origin HEAD:main
+                        git push origin main
                     """
                 }
             }

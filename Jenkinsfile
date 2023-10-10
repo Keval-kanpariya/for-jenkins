@@ -11,8 +11,8 @@ pipeline {
                def lines = filePath.readLines(1) 
                for (line in lines) {                                            
                   build(job: "anotherjob",
-                        parameters:[$line]
-                )// for
+                        parameters:[$line])
+                        }// for
             } // script
          }// steps
       } // stage

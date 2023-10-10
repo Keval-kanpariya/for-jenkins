@@ -14,7 +14,7 @@ pipeline {
                 script {
                     // Use sed to replace placeholders with actual values in dev.env
                     sh '''
-                        sed -i "s|\\\$TCP_PORT|{env.TCP_PORT}|g" dev.env
+                        sed -i "s|\\\$TCP_PORT|${env.TCP_PORT}|g" dev.env
 
 
                     '''

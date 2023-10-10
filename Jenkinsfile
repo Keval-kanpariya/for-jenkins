@@ -9,9 +9,9 @@ pipeline {
                     echo "tcp = ${tcp}" // Print the value of tcp for debugging
 
                     // Use sed to replace placeholders with actual values in dev.env
-                   // sh """
-                     //   sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
-                   // """
+                    sh """
+                        sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
+                    """
 
                     // Configure the Git remote URL with SSH
                     sh """

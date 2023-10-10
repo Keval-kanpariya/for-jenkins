@@ -19,7 +19,7 @@ pipeline {
                         git config --global user.name "keval-kanpariya"
                         git add .
                         git commit -m "Updated dev.env and Jenkins pipeline script"
-                        git push https://Keval-kanpariya@github.com/Keval-kanpariya/for-jenkins.git main
+                        git push git@github.com:Keval-kanpariya/for-jenkins.git main
 
                     """
                 }

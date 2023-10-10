@@ -12,9 +12,10 @@ pipeline {
                for (line in lines) {                                            
                   build(job: "anotherjob",
                         parameters:[$line]
-               } // for
+                )// for
             } // script
          }// steps
       } // stage
    } // stages
 } // pipeline
+}

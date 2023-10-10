@@ -22,7 +22,12 @@ pipeline {
                         sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
                         
                          """
-                 stage('anaother stage') {
+                
+                   
+                }
+            }
+        }
+         stage('anaother stage') {
                     steps {
                         script {
                     sh """
@@ -36,9 +41,5 @@ pipeline {
                         }
                         }
                     }
-                   
-                }
-            }
-        }
     }
 }

@@ -15,8 +15,7 @@ pipeline {
 
                     // Configure the Git remote URL with SSH
                     sh """
-                    git init
-                        cd .git/
+                   
                         git config --global user.email "your-email@example.com"
                         git config --global user.name "keval-kanpariya"
                         #git stash save "Stash changes in dev.env"

@@ -6,12 +6,12 @@ pipeline {
         stage('Update dev.env') {
             steps {
                 script {
-                    // Use sed to replace placeholders with actual values in dev.env
-                    sh '''
-                    println "tcp = ${tcp}"
-                    sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
-                       '''
+                    echo "tcp = ${tcp}" // Print the value of tcp for debugging
 
+                    // Use sed to replace placeholders with actual values in dev.env
+                    sh """
+                        sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
+                    """
                 }
             }
         }

@@ -3,9 +3,9 @@ pipeline {
     
     environment {
         // Define environment variables with actual values
-        TCP_PORT = '12345'
-        TCP_HOST = 'example.com'
-        TZ = 'America/New_York'
+        $TCP_PORT = '12345'
+        $TCP_HOST = 'example.com'
+        $TZ = 'America/New_York'
     }
     
     stages {

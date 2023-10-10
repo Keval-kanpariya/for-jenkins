@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define environment variables with actual values
-        TCP_PORT = '12345'
+        $TECP_PORT = '12345'
         TCP_HOST = 'example.com'
         TZ = 'America/New_York'
     }
@@ -14,7 +14,7 @@ pipeline {
                 script {
                     // Use sed to replace placeholders with actual values in dev.env
                     sh '''
-                        sed -i "s|\\\$TCP_PORT|${env.TCP_PORT}|g" dev.env
+                        sed -i "s|\\\$TCP_PORT|${env.TECP_PORT}|g" dev.env
 
 
                     '''

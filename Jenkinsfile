@@ -13,14 +13,14 @@ pipeline {
                         sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
                     """
 
-                    // Commit and push the changes to GitHub
+                    // Configure the Git remote URL with SSH
                     sh """
                         git config --global user.email "your-email@example.com"
                         git config --global user.name "keval-kanpariya"
+                        git remote set-url origin git@github.com:Keval-kanpariya/for-jenkins.git
                         git add .
                         git commit -m "Updated dev.env and Jenkins pipeline script"
-                        git push git@github.com:Keval-kanpariya/for-jenkins.git main
-
+                        git push origin main
                     """
                 }
             }

@@ -8,8 +8,8 @@ pipeline {
                 script {
                     // Use sed to replace placeholders with actual values in dev.env
                     sh '''
-                    echo $tcp
-                    sed -i -e "s|\\\$TCP_PORT|$tcp|g" dev.env
+                    println "tcp = ${tcp}"
+                    sed -i -e "s|\\\$TCP_PORT|${tcp}|g" dev.env
                        '''
 
                 }

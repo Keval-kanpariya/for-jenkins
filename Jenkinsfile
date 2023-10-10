@@ -1,25 +1,20 @@
 pipeline {
-    agent any
-    
-    environment {
-        // Define environment variables with actual values
-        $TCP_PORT = '12345'
-        $TCP_HOST = 'example.com'
-        $TZ = 'America/New_York'
-    }
-    
-    stages {
-        stage('Update dev.env') {
-            steps {
-                script {
-                    // Use sed to replace placeholders with actual values in dev.env
-                    sh '''
-                        sed -i "s|\\\$TCP_PORT|${env.TCP_PORT}|g" dev.env
-                        sed -i "s|\\\$TCP_HOST|${env.TCP_HOST}|g" dev.env
-                        sed -i "s|\\\$TZ|${env.TZ}|g" dev.env
-                    '''
-                }
-            }
-        }
-    }
-}
+   agent any
+
+   stages {
+      stage('Hello') {
+         steps {
+            script{
+               git branch: 'main', credentialsId: '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', url: 'https://github.com/Keval-kanpariya/for-jenkins.git'
+          
+               def filePath = readFile "${dev.env}/ Your File Location"                   
+               def lines = filePath.readLines(1) 
+               for (line in lines) {                                            
+                  build(job: "anotherjob",
+                        parameters:[$line]
+               } // for
+            } // script
+         }// steps
+      } // stage
+   } // stages
+} // pipeline

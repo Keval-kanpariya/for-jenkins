@@ -15,7 +15,7 @@ pipeline {
 
                     // Configure the Git remote URL with SSH
                     sh """
-                         git clone git@github.com:Keval-kanpariya/for-jenkins.git
+                         #git clone git@github.com:Keval-kanpariya/for-jenkins.git
                         git config --global user.email "your-email@example.com"
                         git config --global user.name "keval"
                         #git stash save "Stash changes in dev.env"
@@ -31,8 +31,8 @@ pipeline {
                     steps {
                         script {
                     sh """
-                        git remote set-url origin git@github.com:Keval-kanpariya/for-jenkins.git
-                        #git remote set-url origin https://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@github.com/Keval-kanpariya/for-jenkins.git
+                        #git remote set-url origin git@github.com:Keval-kanpariya/for-jenkins.git
+                        git remote set-url origin https://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@github.com/Keval-kanpariya/for-jenkins.git
                         git add .
                         git commit -m "Updated dev.env and Jenkins pipeline script"
                         #git checkout main

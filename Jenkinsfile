@@ -15,7 +15,7 @@ pipeline {
 
                     // Configure the Git remote URL with SSH
                     sh """
-                        git init
+                         git clone git@github.com:Keval-kanpariya/for-jenkins.git
                         git config --global user.email "your-email@example.com"
                         git config --global user.name "keval"
                         #git stash save "Stash changes in dev.env"
